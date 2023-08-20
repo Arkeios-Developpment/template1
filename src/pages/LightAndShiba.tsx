@@ -2,9 +2,9 @@ import React from 'react';
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stats } from "@react-three/drei";
 
-import { Shiba } from '@/components/shiba';
-import { Text3D } from '@/components/Text3D';
-import { PlaneShadow } from '@/components/PlaneShadow';
+import { Shiba } from '@/components/LightAndShiba/shiba';
+import { Text3D } from '@/components/LightAndShiba/Text3D';
+import { PlaneShadow } from '@/components/LightAndShiba/PlaneShadow';
 
 const Scene = () => {
     return (
