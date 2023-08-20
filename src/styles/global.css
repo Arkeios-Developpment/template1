@@ -1,4 +1,4 @@
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, ol, li {
+html, body, div, span, h4, h5, h6, a, img, ul, ol, li {
     margin: 0;
     padding: 0;
     border: 0;
@@ -7,9 +7,47 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, ol, li {
     vertical-align: baseline;
 }
 
+h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Times New Roman", sans-serif;
+    font-weight: bold;
+    vertical-align: baseline;
+    font-size: 34px;
+    color: #003056;
+    text-align: center;
+    max-width: 90%;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    vertical-align: baseline;
+    font-size: 20px;
+    color: #003056;
+    text-align: center;
+    max-width: 70%;
+}
+
+strong {
+    color: #57352a;
+    font-weight: 800;
+}
+
 @font-face {
     font-family: Roboto;
     src: url("../../asset/Roboto/Roboto-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url("../../asset/Times New Roman/times new roman bold.ttf");
     font-weight: 400;
     font-style: normal;
 }
