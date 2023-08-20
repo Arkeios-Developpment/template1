@@ -1,38 +1,43 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
 import Image from "next/image";
-import {Parallax} from "react-parallax";
-
+import {motion, useScroll, useTransform} from 'framer-motion';
 
 const HomePage = () => {
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const { scrollYProgress } = useScroll();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    const scrollY = useTransform(scrollYProgress, [0, 1], [0, 400]);
 
     return (
         <>
         <div>
             <div
                 style={{
-                    height: "100vh",
-                    backgroundImage: `url("/Test.png")`,
-                    backgroundPosition: `center ${scrollPosition * 0.5}px`,
+                   backgroundImage: 'url(Test.png)',
+                    backgroundPosition: 'center',
                     backgroundSize: 'cover',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-            }}>
+                    backgroundRepeat: 'no-repeat',
+                    height: `110vh`,
+                    overflow: 'hidden',
+                }}
+            >
+                <motion.div
+                    style={{
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundImage: 'url(Test.png)',
+                        height: "110vh",
+                        y: scrollY,
+                    }}/>
             </div>
-            <div style={{position: "absolute", display: "flex", justifyContent: "center", alignItems: "center", top: 0, left: 0, width: "100%", height: "100%"}}>
+            <div style={{position: "absolute",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%"
+            }}>
                 <Image
                     src="/Logo.png"
                     alt="Deuxième image"
