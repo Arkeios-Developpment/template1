@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {motion, useScroll, useTransform} from 'framer-motion';
 import styled from "styled-components";
@@ -94,7 +93,7 @@ const HomePage = () => {
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: "8px"}}>
                     <h1>NOTRE</h1>
                     <h1 style={{color: "#8b5543"}}>SAVOIR-FAIRE</h1>
-                    <h1>S'EXPRIME DANS</h1>
+                    <h1>S&apos;EXPRIME DANS</h1>
                     <h1 style={{color: "#8b5543"}}>3 DOMAINES</h1>
                 </div>
             </div>
