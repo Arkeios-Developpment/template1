@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
 
-export function MenuButton({ text, route, isClicked }: { text: string, route: string, isClicked: boolean}) {
+export function MenuButton({ text, route, isClicked, colors, scale }: { text: string, route: string, isClicked: boolean, colors: string[], scale: number}) {
     const [isHovered, setIsHovered] = useState(false);
     const router = useRouter();
 
@@ -15,7 +15,7 @@ export function MenuButton({ text, route, isClicked }: { text: string, route: st
             <motion.div style={{
                 opacity: 0,
                 fontFamily: "Dosis, Arial, sans-serif",
-                fontSize: "45px",
+                fontSize: `${45 * scale}px`,
                 color: "#333333",
                 cursor: "pointer"
             }}
@@ -25,7 +25,7 @@ export function MenuButton({ text, route, isClicked }: { text: string, route: st
              animate={[isClicked ? "click" : "idle", isHovered ? "hover" : ""]}
              variants={{
                  idle: {
-                     x: 50
+                     x: 50 * scale
                  },
                  click: {
                      x: 0,
@@ -36,7 +36,7 @@ export function MenuButton({ text, route, isClicked }: { text: string, route: st
                      }
                  },
                  hover: {
-                     color: "#bf9a57",
+                     color: colors[0],
                      transition: {
                          duration: 0.1
                      }

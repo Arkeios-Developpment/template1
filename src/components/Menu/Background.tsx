@@ -1,56 +1,70 @@
 import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-export function MenuBackground({ children, isClicked }: { children: ReactNode, isClicked: boolean}) {
+export function MenuBackground({ children, isClicked, colors, sizes, closedSizes, scale }:
+                                   { children: ReactNode, isClicked: boolean, colors: string[], sizes: number[], closedSizes: number[], scale: number}) {
 
     return (
-        <div style={{overflow: "hidden"}}>
-            <motion.div style={{
-                width: "0px",
-                height: "70px",
-                position: "fixed",
-                display: "inline-block",
-                borderStyle: "solid",
-                borderWidth: "0 500px 240px 0",
-                borderColor: "transparent #bf9a57 transparent transparent",
-                right: "-350px"
-            }}
-             animate={isClicked ? "click" : ""}
-             transition={{duration: 0.3}}
-             variants={{
-                 click: {
-                     x: -350,
-                     y: 400,
-                     borderColor: "transparent #fffbf7 transparent transparent"
-                 }
-             }} />
-            <motion.div style={{
-                width: "500px",
-                height: "470px",
-                backgroundColor: "#bf9a57",
-                position: "fixed",
-                display: "inline-block",
-                top: "-400px",
-                right: "-350px"
-            }}
-             animate={isClicked ? "click" : ""}
-             transition={{duration: 0.3}}
-             variants={{
-                 click: {
-                     x: -350,
-                     y: 400,
-                     backgroundColor: "#fffbf7"
-                 }
-             }} >
-                <div style={{
-                    padding: "100px 50px 50px 50px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "20px"
-                }} >
-                    { children }
-                </div>
+        <motion.div style={{
+            backgroundColor: "rgba(205,80,121,0)",
+            width: "100vw",
+            height: "100vh"
+        }}
+        animate={isClicked ? "click" : ""}
+        transition={{duration: 0.3}}
+        variants={{
+            click: {
+                backgroundColor: "rgba(205,80,121,0.5)"
+            }
+        }}>
+            <motion.div style={{overflow: "hidden"}}>
+                <motion.div style={{
+                    width: "0px",
+                    height: `${closedSizes[1]}px`,
+                    position: "fixed",
+                    display: "inline-block",
+                    borderStyle: "solid",
+                    borderWidth: `0 ${sizes[0]}px ${sizes[1] / 2}px 0`,
+                    borderColor: `transparent ${colors[0]} transparent transparent`,
+                    right: `-${sizes[0] - closedSizes[0]}px`
+                }}
+                 animate={isClicked ? "click" : ""}
+                 transition={{duration: 0.3}}
+                 variants={{
+                     click: {
+                         x: -(sizes[0] - closedSizes[0]),
+                         y: sizes[1] - closedSizes[1],
+                         borderColor: `transparent ${colors[1]} transparent transparent`
+                     }
+                 }} />
+                <motion.div style={{
+                    width: `${sizes[0]}px`,
+                    height: `${sizes[1]}px`,
+                    backgroundColor: colors[0],
+                    position: "fixed",
+                    display: "inline-block",
+                    right: `-${sizes[0] - closedSizes[0]}px`,
+                    top: `-${sizes[1] - closedSizes[1]}px`
+                }}
+                 animate={isClicked ? "click" : ""}
+                 transition={{duration: 0.3}}
+                 variants={{
+                     click: {
+                         x: -(sizes[0] - closedSizes[0]),
+                         y: sizes[1] - closedSizes[1],
+                         backgroundColor: colors[1]
+                     }
+                 }} >
+                    <div style={{
+                        padding: "20% 10% 10% 10%",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: `${20 * scale}px`
+                    }} >
+                        { children }
+                    </div>
+                </motion.div>
             </motion.div>
-        </div>
+        </motion.div>
     )
 }

@@ -23,7 +23,7 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
                 click: {
                     rotateZ: 45,
                     y: 11,
-                    background: "black"
+                    backgroundColor: "black"
                 }
              }} />
             <motion.span style={{
@@ -37,7 +37,7 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
              variants={{
                  click: {
                      opacity: 0,
-                     background: "black"
+                     backgroundColor: "black"
                  }
              }} />
             <motion.span style={{
@@ -55,7 +55,7 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
                 click: {
                     rotateZ: -45,
                     y: -11,
-                    background: "black"
+                    backgroundColor: "black"
                 }
             }} />
         </div>
