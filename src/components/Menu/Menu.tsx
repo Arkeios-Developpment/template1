@@ -12,7 +12,7 @@ export function Menu() {
     const colors = ["#cd5079", "#fffbf7"];
     const closedSizes = [150, 70];
     let sizes= [500, 470];
-    let scale = 1.0;
+    let scale: number;
 
     const useWidth = () => {
         const [width, setWidth] = useState(0); // default width, detect on server.
@@ -24,13 +24,27 @@ export function Menu() {
         }, [handleResize]);
         return width;
     };
+    const useHeight = () => {
+        const [height, setHeight] = useState(0); // default width, detect on server.
+        const handleResize = () => setHeight(window.innerHeight);
+        useEffect(() => {
+            handleResize();
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, [handleResize]);
+        return height;
+    };
     const width = useWidth();
+    const height = useHeight();
 
-    if (width < sizes[0]) {
-        scale = width / sizes[0];
-        sizes[1] = scale * sizes[1];
-        sizes[0] = width;
+    if (width < sizes[0] || height < sizes[1]) {
+        scale = width < height ? (width / sizes[0]) : (height / sizes[1]);
     }
+    else {
+        scale = width < height ? (width / sizes[0]) / 2 : (height / sizes[1]) / 2;
+    }
+    sizes[0] *= scale;
+    sizes[1] *= scale;
 
     return (
         <div style={{position: "fixed", right: "0", top: "0"}}>
