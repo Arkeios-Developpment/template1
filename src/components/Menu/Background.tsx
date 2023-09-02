@@ -6,7 +6,7 @@ export function MenuBackground({ children, isClicked, colors, sizes, closedSizes
 
     return (
         <motion.div style={{
-            backgroundColor: "rgba(205,80,121,0)",
+            backgroundColor: `${colors[0]}00`,
             width: "100vw",
             height: "100vh"
         }}
@@ -14,7 +14,7 @@ export function MenuBackground({ children, isClicked, colors, sizes, closedSizes
         transition={{duration: 0.3}}
         variants={{
             click: {
-                backgroundColor: "rgba(205,80,121,0.5)"
+                backgroundColor: `${colors[0]}80`
             }
         }}>
             <motion.div style={{overflow: "hidden"}}>
