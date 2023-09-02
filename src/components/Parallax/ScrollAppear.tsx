@@ -30,13 +30,16 @@ export function ScrollAppear({children, direction}: ScrollAppearParams) {
         yDirection = -1;
     }
 
-    let scrollX;
-    let scrollY;
+    let winWidth = 0;
+    let winHeight = 0;
 
     if (typeof window !== "undefined") {
-        scrollX = useTransform(scrollYProgress, [0, 1], [window.innerWidth * xDirection, 0]);
-        scrollY = useTransform(scrollYProgress, [0, 1], [window.innerHeight * yDirection, 0]);
+        winWidth = window.innerWidth;
+        winHeight = window.innerHeight;
     }
+
+    const scrollX = useTransform(scrollYProgress, [0, 1], [winWidth * xDirection, 0]);
+    const scrollY = useTransform(scrollYProgress, [0, 1], [winHeight * yDirection, 0]);
 
 
     return (

@@ -205,7 +205,7 @@ const Content = styled.div`
 
 
 const Phone = styled.a`
-  color: white;
+  color: #211426;
   text-decoration: none;
   font-size: 26px;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
