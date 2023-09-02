@@ -1,4 +1,4 @@
-html, body, div, span, h4, h5, h6, a, img, ul, ol, li {
+html, body, div, span, h4, h5, a, img, ul, ol {
     margin: 0;
     padding: 0;
     border: 0;
@@ -33,6 +33,16 @@ p {
     max-width: 70%;
 }
 
+h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 14px;
+    color: beige;
+    vertical-align: baseline;
+}
+
 strong {
     color: #57352a;
     font-weight: 800;
@@ -42,6 +52,13 @@ strong {
     font-family: Roboto;
     src: url("../../asset/Roboto/Roboto-Regular.ttf");
     font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    src: url("../../asset/Roboto/Roboto-Light.ttf");
+    font-weight: bold;
     font-style: normal;
 }
 

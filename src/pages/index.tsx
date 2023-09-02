@@ -1,21 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import Image from "next/image";
+import React, {useEffect, useRef, useState} from 'react';
 import {motion, useScroll, useTransform} from 'framer-motion';
 import styled from "styled-components";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import {rgba} from "@react-spring/shared";
 
 const HomePage = () => {
+    const target = useRef<HTMLDivElement>(null!);
+    const scrollOpacity = useScroll({ target: target, offset: ["start start", "end start"] } ).scrollYProgress;
     const { scrollYProgress } = useScroll();
 
-    const scrollY = useTransform(scrollYProgress, [0, 1], [0, 350]);
+    const scrollY = useTransform(scrollYProgress, [0, 1], [0, 560]);
+    const opacity = useTransform(scrollOpacity, [0, 1], [0.7, 0]);
 
     return (
         <>
             <div style={{display: "flex", flexDirection: "column", gap: "30px"}}>
                 <div
                     style={{
-                        backgroundImage: 'url(Background.jpg)',
+                        backgroundImage: 'url(test46.png)',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
@@ -27,10 +31,17 @@ const HomePage = () => {
                         style={{
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            backgroundImage: 'url(Background.jpg)',
+                            backgroundImage: 'url(test46.png)',
                             height: "110vh",
                             y: scrollY,
-                        }}/>
+                        }}>
+                        <motion.div
+                            ref={target}
+                            style={{width: '100%',
+                                    height: '100%',
+                                    opacity: opacity,
+                                    backgroundColor: `black`}}/>
+                    </motion.div>
                 </div>
                 <div style={{position: "absolute",
                     display: "flex",
@@ -43,13 +54,7 @@ const HomePage = () => {
                     width: "100%",
                     height: "100%",
                 }}>
-                    <StyledLogo
-                        src="/Logo.png"
-                        alt="Deuxième image"
-                        width={0}
-                        height={0}
-                        sizes='100vw'
-                    />
+                    <h1 style={{fontSize: "120px", color: "#ffffff", fontFamily: "Roboto"}}>AMK</h1>
                     <div style={{display: "flex", gap: "30px", flexWrap: "wrap", justifyContent: "center", alignItems: "center"}}>
                         <Button>ENSEIGNES</Button>
                         <Button>SIGNALETIQUES</Button>
@@ -60,8 +65,8 @@ const HomePage = () => {
                             CONTACT
                         </h3>
                         <Phone href="tel:0000000000">
-                            <FontAwesomeIcon icon={faPhone} style={{paddingRight: "8px"}}/>
-                            00 00 00 00 00
+                            <FontAwesomeIcon icon={faPhone} style={{paddingRight: "8px", color: 'white'}}/>
+                            07 89 61 16 00
                         </Phone>
                     </div>
                 </div>
@@ -97,13 +102,110 @@ const HomePage = () => {
                     <h1>S'EXPRIME DANS</h1>
                     <h1 style={{color: "#8b5543"}}>3 DOMAINES</h1>
                 </div>
+                <StyledWrapper>
+                    <Container style={{backgroundImage: 'url(Image1.png)'}}>
+                        <div style={{display: 'flex', flexDirection: 'column',alignItems: 'center', gap: '5px', position: 'absolute' , top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+                            <h1 style={{}}>Développement d'Applications</h1>
+                            <Content>
+                                <div style={{overflow: "hidden"}}>
+                                    <p style={{maxWidth: "100%", paddingBottom: '10px'}}>Some Description Some Description</p>
+                                </div>
+                                <Button>DÉCOUVRIR</Button>
+                            </Content>
+                        </div>
+                    </Container>
+                    <Container style={{backgroundImage: 'url(Image2.png)'}}>
+                        <div style={{display: 'flex', flexDirection: 'column',alignItems: 'center', gap: '5px', position: 'absolute' , top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+                            <h1 style={{}}>Conception Web</h1>
+                            <Content>
+                                <div style={{overflow: "hidden"}}>
+                                    <p style={{maxWidth: "100%", paddingBottom: '10px'}}>Some Description Some Description</p>
+                                </div>
+                                <Button>DÉCOUVRIR</Button>
+                            </Content>
+                        </div>
+                    </Container>
+                    <Container style={{backgroundImage: 'url(Image3.png)'}}>
+                        <div style={{display: 'flex', flexDirection: 'column',alignItems: 'center', gap: '5px', position: 'absolute' , top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+                            <h1 style={{}}>Bases de Données</h1>
+                            <Content>
+                                <div style={{overflow: "hidden"}}>
+                                    <p style={{maxWidth: "100%", paddingBottom: '10px'}}>Some Description Some Description</p>
+                                </div>
+                                <Button>DÉCOUVRIR</Button>
+                            </Content>
+                        </div>
+                    </Container>
+                </StyledWrapper>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '3px', borderBottom: '1px black solid', borderTop: '1px black solid'}}>
+                    <div style={{ maxWidth: '75px', width: '100%', height: 'auto' }}>
+                        <Image src="/logo_prisme.png"
+                               alt="Prisme image"
+                               width={0}
+                               height={0}
+                               sizes='100vw'
+                               layout='responsive'
+                        />
+                    </div>
+                </div>
+                <div style={{backgroundColor: '#003056', display: 'flex', flexDirection: 'column', gap: '5px', padding: '20px 20px 20px 20px'}}>
+                    <h6>A.M.K. Development</h6>
+                    <h6>Address</h6>
+                    <h6>Adresse email</h6>
+                    <h6>Numéro de telephone</h6>
+                    <h6>Cree par nous</h6>
+                </div>
             </div>
         </>
     );
 };
 
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: initial;
+  align-items: center;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+`;
+
+const Container = styled.div`
+  position: relative;
+  width: 33.3%;
+  padding-bottom: 33.3%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: grid-template-rows 500ms;
+  
+  &:hover div{
+    grid-template-rows: 1fr;
+  }
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding-bottom: 40%;
+  }
+`;
+
+const Content = styled.div`
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+`;
+
+
+
+
+
 const Phone = styled.a`
-  color: #211426;
+  color: white;
   text-decoration: none;
   font-size: 26px;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
