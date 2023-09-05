@@ -2,7 +2,8 @@ import { MenuCross } from "@/components/Menu/Cross";
 import { MenuWindow } from "@/components/Menu/Background";
 import { MenuButton } from "@/components/Menu/Button";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useWidth, useHeight } from "@/components/WidthAndHeight";
 
 
 export function Menu() {
@@ -14,26 +15,7 @@ export function Menu() {
     let sizes= [500, 470];
     let scale: number;
 
-    const useWidth = () => {
-        const [width, setWidth] = useState(0); // default width, detect on server.
-        const handleResize = () => setWidth(window.innerWidth);
-        useEffect(() => {
-            handleResize();
-            window.addEventListener('resize', handleResize);
-            return () => window.removeEventListener('resize', handleResize);
-        }, [handleResize]);
-        return width;
-    };
-    const useHeight = () => {
-        const [height, setHeight] = useState(0); // default width, detect on server.
-        const handleResize = () => setHeight(window.innerHeight);
-        useEffect(() => {
-            handleResize();
-            window.addEventListener('resize', handleResize);
-            return () => window.removeEventListener('resize', handleResize);
-        }, [handleResize]);
-        return height;
-    };
+
     const width = useWidth();
     const height = useHeight();
 
