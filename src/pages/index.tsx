@@ -19,16 +19,6 @@ const HomePage = () => {
                 <ServiceContainer title={"Bases de Données"} description={"Some Description Some Description"}
                                   backgroundImage={"Image3.png"}/>
             </ServiceWrapper>
-            <div style={{display: 'flex', flexDirection: 'row', gap: '10px', justifyContent: 'center'}}>
-                <div style={{maxWidth: '75px', width: '100%', height: 'auto', display: 'flex'}}>
-                    <Image src="/logo_prisme.png"
-                           alt="Prisme image"
-                           width={0}
-                           height={0}
-                           sizes='100vw'
-                           layout='responsive'/>
-                </div>
-            </div>
             <Footer/>
         </PageContainer>
     );
@@ -37,7 +27,7 @@ const HomePage = () => {
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 `;
 
 const ServiceWrapper = styled.div`

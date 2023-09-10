@@ -15,7 +15,7 @@ h1 {
     font-weight: bold;
     vertical-align: baseline;
     font-size: 34px;
-    color: #2d384c;
+    color: #003056;
     text-align: center;
     max-width: 90%;
 }
@@ -28,7 +28,7 @@ h2 {
     font-weight: normal;
     vertical-align: baseline;
     font-size: 34px;
-    color: #2d384c;
+    color: #003056;
     text-align: center;
     max-width: 90%;
 }
@@ -50,11 +50,11 @@ p {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Light", sans-serif;
     font-weight: 100;
     vertical-align: baseline;
     font-size: 20px;
-    color: #4c5f7f;
+    color: #003056;
     text-align: center;
     max-width: 70%;
 }
@@ -70,14 +70,14 @@ h6 {
 }
 
 strong {
-    color: #2d384c;
-    font-weight: 800;
+    color: #003056;
+    font-family: "Roboto", sans-serif;
 }
 
 @font-face {
     font-family: Roboto;
     src: url("../../asset/Roboto/Roboto-Regular.ttf");
-    font-weight: 400;
+    font-weight: bold;
     font-style: normal;
 }
 

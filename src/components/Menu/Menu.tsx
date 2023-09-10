@@ -9,7 +9,7 @@ export function Menu() {
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
 
-    const colors = ["#000000", "#fffbf7"];
+    const colors = ["#bf9a57", "#fffbf7"];
     const closedSizes = [150, 70];
     let sizes= [500, 470];
     let scale: number;

@@ -35,10 +35,10 @@ const Container = styled.div`
 
 const InputField = styled.input`
   width: 100%;
-  padding: 10px 0 0 10px;
+  padding: 10px 0 0 0;
   outline: 0;
   border: 1px solid black;
-  color: black;
+  color: #003056;
   background: transparent;
   font-size: 15px;
 `;
@@ -50,7 +50,7 @@ const InputLabel = styled.label<{ isValid: Boolean }>`
   top: ${props => (props.isValid ? 0 : -30)}px;
   font-size: ${props => (props.isValid ? 16 : 14)}px;
   padding: 5px;
-  color: black;
+  color: #003056;
   cursor: text;
   transition: 0.2s;
 

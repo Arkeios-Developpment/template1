@@ -6,7 +6,7 @@ import { faEnvelope as faRegularEnvelope} from "@fortawesome/free-regular-svg-ic
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import FormContainer from "@/components/ContactPage/FormContainer";
-
+import Footer from "@/components/HomePage/Footer";
 
 const Contact = () => {
     return (
@@ -23,19 +23,20 @@ const Contact = () => {
                 alignItems: 'center'
             }}>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center'}}>
-                    <FontAwesomeIcon icon={faMobileScreenButton} size="lg" style={{color: 'black'}}/>
-                <h6 style={{color: 'black'}}>07 89 61 16 00</h6>
+                    <FontAwesomeIcon icon={faMobileScreenButton} size="lg" style={{color: '#003056'}}/>
+                <h6 style={{color: '#003056'}}>07 89 61 16 00</h6>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center'}}>
-                    <FontAwesomeIcon icon={faRegularEnvelope} size="lg" style={{color: 'black'}}/>
-                    <h6 style={{color: 'black'}}>07 89 61 16 00</h6>
+                    <FontAwesomeIcon icon={faRegularEnvelope} size="lg" style={{color: '#003056'}}/>
+                    <h6 style={{color: '#003056'}}>07 89 61 16 00</h6>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center'}}>
-                    <FontAwesomeIcon icon={faLinkedin} size="lg" style={{color: 'black'}}/>
-                    <h6 style={{color: 'black'}}>07 89 61 16 00</h6>
+                    <FontAwesomeIcon icon={faLinkedin} size="lg" style={{color: '#003056'}}/>
+                    <h6 style={{color: '#003056'}}>07 89 61 16 00</h6>
                 </div>
             </div>
             <FormContainer/>
+            <Footer/>
         </PageContainer>
     );
 }

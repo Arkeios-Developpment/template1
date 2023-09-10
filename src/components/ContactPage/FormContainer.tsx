@@ -19,14 +19,14 @@ const FormContainer = () => {
                 <InputContainer type='text' id='number' htmlFor='number' icon={faSquarePhone} label='Phone No.'/>
               </InputWrapper>
               <InputContainer type='email' id='email' htmlFor='email' icon={faSolidEnvelope} label='Email Id'/>
-              <div style={{position: 'relative', paddingBottom: '30px'}}>
+              <div style={{position: 'relative', paddingBottom: '29px'}}>
                 <InputTextarea id='message' rows={8} required></InputTextarea>
                 <InputLabel htmlFor='message'><FontAwesomeIcon style={{paddingRight: '5px'}} icon={faMessage} />Your Message</InputLabel>
               </div>
-              <div style={{clear: 'both', float: 'none', width: '100%', textAlign: 'right'}}>
-                  <Button type='submit'><FontAwesomeIcon style={{paddingRight: '5px'}} icon={faPaperPlane} />SUBMIT </Button>
+              <div style={{float: 'right', paddingRight: '5px'}}>
+                <Button type='submit'><FontAwesomeIcon style={{paddingRight: '5px'}} icon={faPaperPlane} />SUBMIT</Button>
               </div>
-          </form>
+              </form>
       </Container>
   );
 };
@@ -40,21 +40,35 @@ const Container = styled.div`
 
 const InputTextarea = styled.textarea`
   width: 100%;
-  padding: 10px 0 0 10px;
+  padding: 0;
   outline: 0;
   border: 1px solid black;
-  color: black;
+  color: #003056;
   background: transparent;
   font-size: 15px;
 `;
 
 const Button = styled.button`
-  color: black;
-  outline: none;
-  background: transparent;
-  border: 1px solid black;
-  width: 100%;
+  background-color: transparent;
+  border: #003056 1px solid;
+  padding: 10px 15px;
+  text-align: center;
+  color: #003056;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  vertical-align: baseline;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  
+  &:hover {
+    background-color: #003056;
+    color: white;
+  }
+  
+  @media(max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const InputLabel = styled.label`
@@ -63,7 +77,7 @@ const InputLabel = styled.label`
   left: 0;
   top: 0;
   padding: 10px;
-  color: black;
+  color: #003056;
   cursor: text;
   transition: 0.2s;
   
