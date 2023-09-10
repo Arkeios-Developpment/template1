@@ -15,8 +15,8 @@ export function MenuWindow({ children, isClicked, colors, sizes, closedSizes, sc
              transition={{duration: 0.3}}
              variants={{
                 click: {
-                    x: -(sizes[0] - closedSizes[0]),
-                    y: sizes[1] - closedSizes[1]
+                    x: -(sizes[0] - closedSizes[0] - 1),
+                    y: sizes[1] - closedSizes[1] - 1
                 }
              }} >
                 <motion.div style={{
@@ -43,8 +43,8 @@ export function MenuWindow({ children, isClicked, colors, sizes, closedSizes, sc
                     width: `${sizes[0]}px`,
                     height: `${sizes[1] / 2}px`,
                     backgroundColor: colors[0],
-                    clipPath: "polygon(100% 100%, 0 0, 100% 0)",
-                    translateY: "-0.5px",
+                    clipPath: "polygon(100% 100%, 0 1%, 0 0, 100% 0)",
+                    translateY: "-2px",
                     pointerEvents: "auto"
                  }}
                  variants={{
