@@ -23,14 +23,14 @@ const AboutSection = () => {
                 />
             </ImageContainer>
             <Container>
-                <h2>NOTRE METIER</h2>
-                <p style={{color: "#f6772c"}}>Créer <strong>des solutions numériques qui inspirent.</strong> Grâce à notre expertise diversifiée, nous développons <strong>des applications et des sites web innovants</strong>, façonnons <strong>des expériences utilisateur exceptionnelles</strong> et concrétisons vos ambitions technologiques.</p>
+                <h1>NOTRE METIER</h1>
+                <p>Créer <strong>des solutions numériques qui inspirent.</strong> Grâce à notre expertise diversifiée, nous développons <strong>des applications et des sites web innovants</strong>, façonnons <strong>des expériences utilisateur exceptionnelles</strong> et concrétisons vos ambitions technologiques.</p>
             </Container>
             <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: "8px"}}>
                 <h1>NOTRE</h1>
-                <h2>SAVOIR-FAIRE</h2>
+                <h1>SAVOIR-FAIRE</h1>
                 <h1>S'EXPRIME DANS</h1>
-                <h2>3 DOMAINES</h2>
+                <h1>3 DOMAINES</h1>
             </div>
         </>
     );

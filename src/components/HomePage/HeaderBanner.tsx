@@ -102,7 +102,7 @@ const Button = styled.button`
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #b56df5;
+    background-color: #4533bc;
     color: white;
   }
 `;
