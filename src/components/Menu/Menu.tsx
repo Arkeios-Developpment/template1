@@ -2,7 +2,9 @@ import { MenuCross } from "@/components/Menu/Cross";
 import { MenuWindow } from "@/components/Menu/Background";
 import { MenuButton } from "@/components/Menu/Button";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useWidth, useHeight } from "@/components/WidthAndHeight";
+import {SocialNetwork3D} from "@/components/SocialNetwork/SocialNetwork3D";
 
 
 export function Menu() {
@@ -14,26 +16,7 @@ export function Menu() {
     let sizes= [500, 470];
     let scale: number;
 
-    const useWidth = () => {
-        const [width, setWidth] = useState(0); // default width, detect on server.
-        const handleResize = () => setWidth(window.innerWidth);
-        useEffect(() => {
-            handleResize();
-            window.addEventListener('resize', handleResize);
-            return () => window.removeEventListener('resize', handleResize);
-        }, [handleResize]);
-        return width;
-    };
-    const useHeight = () => {
-        const [height, setHeight] = useState(0); // default width, detect on server.
-        const handleResize = () => setHeight(window.innerHeight);
-        useEffect(() => {
-            handleResize();
-            window.addEventListener('resize', handleResize);
-            return () => window.removeEventListener('resize', handleResize);
-        }, [handleResize]);
-        return height;
-    };
+
     const width = useWidth();
     const height = useHeight();
 
@@ -72,6 +55,21 @@ export function Menu() {
                     <MenuButton isClicked={isClicked} text={"A propos de nous"} route={"/about"} colors={colors} scale={scale}/>
                     <MenuButton isClicked={isClicked} text={"Nous contacter"} route={"/contact"} colors={colors} scale={scale}/>
                 </MenuWindow>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row-reverse",
+                        gap: "7px",
+                        position: "absolute",
+                        top: "5px",
+                        right: "155px",
+                        pointerEvents: "all",
+                        width: "100px",
+                        height: "100px"
+                    }} >
+                    <SocialNetwork3D baseScale={2.75} scenePath={"/instagram_3d-icon/scene.gltf"} url={"https://www.instagram.com/klg.gaetan/"} baseRotation={1.5 * Math.PI} />
+                    <SocialNetwork3D baseScale={2.6} scenePath={"/linkedin_logo/scene.gltf"} url={"https://www.linkedin.com/in/gaetankling"} />
+                </div>
                 <motion.div
                     onClick={() => setIsClicked(!isClicked)}
                     onHoverStart={() => setIsHovered(true)}
@@ -90,7 +88,8 @@ export function Menu() {
                     <motion.span style={{
                         fontSize: "26px",
                         color: "white",
-                        fontFamily: "Dosis, Arial, sans-serif"
+                        fontFamily: "Dosis, Arial, sans-serif",
+                        marginRight: "5px",
                     }}
                      animate={isClicked ? "click" : ""}
                      transition={{duration: 0.3}}

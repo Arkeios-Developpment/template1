@@ -14,7 +14,7 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
                 backgroundColor: "white",
                 display: "inline-block"
             }}
-             animate={isClicked ? "click" : isHovered ? "hover" : ""}
+             animate={isClicked ? isHovered ? "clickHover" : "click" : isHovered ? "hover" : ""}
              transition={{duration: 0.2, background: {delay: 0.1}}}
              variants={{
                 hover: {
@@ -24,7 +24,13 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
                     rotateZ: 45,
                     y: 11,
                     backgroundColor: "black"
-                }
+                },
+                 clickHover: {
+                     rotateZ: 45,
+                     y: 11,
+                     backgroundColor: "black",
+                     width: "35px"
+                 }
              }} />
             <motion.span style={{
                 width: "30px",
@@ -46,7 +52,7 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
                 backgroundColor: "white",
                 display: "inline-block"
             }}
-            animate={isClicked ? "click" : isHovered ? "hover" : ""}
+            animate={isClicked ? isHovered ? "clickHover" : "click" : isHovered ? "hover" : ""}
             transition={{duration: 0.2, background: {delay: 0.15}}}
             variants={{
                 hover: {
@@ -56,6 +62,12 @@ export function MenuCross({ isClicked, isHovered }: { isClicked: boolean, isHove
                     rotateZ: -45,
                     y: -11,
                     backgroundColor: "black"
+                },
+                clickHover: {
+                    rotateZ: -45,
+                    y: -11,
+                    backgroundColor: "black",
+                    width: "35px"
                 }
             }} />
         </div>
