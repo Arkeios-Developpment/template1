@@ -9,7 +9,7 @@ import { PlaneShadow } from '@/components/LightAndShiba/PlaneShadow';
 const Scene = () => {
     return (
         <group>
-            <Text3D text={"Website"} />
+            <Text3D text={"Website"} scale={[5, 5, 5]} />
             <Shiba />
             <PlaneShadow />
         </group>
