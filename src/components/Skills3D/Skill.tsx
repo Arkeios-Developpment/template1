@@ -91,8 +91,8 @@ export function Skill({ Path, description, position }: { Path: string, descripti
                         animate={isClicked ? "clicked" : isHovered ? "hover" : ""}
                         onPointerOver={(e) => {e.stopPropagation(); setIsHovered(true);}}
                         onPointerOut={() => setIsHovered(false)}
-                        onClick={(e) => {e.stopPropagation(); setIsClicked(!isClicked);}}
-                        onPointerMissed={() => setIsClicked(false)}
+                        onClick={(e) => {e.stopPropagation(); setIsClicked(!isClicked); setIsHovered(false);}}
+                        onPointerMissed={() => {setIsClicked(false); setIsHovered(false);}}
 
                         transition={{
                             type: "Spring",

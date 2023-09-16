@@ -16,9 +16,10 @@ function SocialNetwork({ baseScale, scenePath, baseRotation } : {baseScale: numb
             castShadow={true}
             initial={{ scale: 0, rotateY: 2 * Math.PI + baseRotation  }}
             animate={{ scale: baseScale, rotateY: baseRotation}}
-            whileHover={{ scale: baseScale * 1.2}}
+            whileHover={{ scale: baseScale * 1.2, rotateY: 2 * Math.PI + baseRotation, transition: { rotateY: { ease: "linear", type: "just", repeat: Infinity, duration: 1} }}}
             whileTap={{ scale: baseScale * 0.9 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            position={[0, 0, 0]}
         >
             <mesh ref={mesh}>
                 <primitive object={gltf.scene} />

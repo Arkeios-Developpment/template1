@@ -29,7 +29,7 @@ const AboutSection = () => {
             <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: "8px"}}>
                 <h1>NOTRE</h1>
                 <h1>SAVOIR-FAIRE</h1>
-                <h1>S'EXPRIME DANS</h1>
+                <h1>S&apos;EXPRIME DANS</h1>
                 <h1>3 DOMAINES</h1>
             </div>
         </>

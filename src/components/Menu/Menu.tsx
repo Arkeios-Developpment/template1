@@ -4,7 +4,7 @@ import { MenuButton } from "@/components/Menu/Button";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useWidth, useHeight } from "@/components/WidthAndHeight";
-import {SocialNetwork3D} from "@/components/SocialNetwork/SocialNetwork3D";
+import {SocialNetwork2D} from "@/components/SocialNetwork/SocialNetwork2D";
 
 
 export function Menu() {
@@ -67,8 +67,8 @@ export function Menu() {
                         width: "100px",
                         height: "100px"
                     }} >
-                    <SocialNetwork3D baseScale={2.75} scenePath={"/instagram_3d-icon/scene.gltf"} url={"https://www.instagram.com/klg.gaetan/"} baseRotation={1.5 * Math.PI} />
-                    <SocialNetwork3D baseScale={2.6} scenePath={"/linkedin_logo/scene.gltf"} url={"https://www.linkedin.com/in/gaetankling"} />
+                    <SocialNetwork2D imagePath={"/linkedin.png"} imageAlt={"Linkedin"} url={"https://www.linkedin.com/in/gaetankling"} />
+                    <SocialNetwork2D imagePath={"/instagram.png"} imageAlt={"Instagram"} url={"https://www.instagram.com/klg.gaetan/"} />
                 </div>
                 <motion.div
                     onClick={() => setIsClicked(!isClicked)}
