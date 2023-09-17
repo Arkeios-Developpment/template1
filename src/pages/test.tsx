@@ -1,10 +1,13 @@
 import React from 'react';
-import {Skills3D} from "@/components/Skills3D/Skills3D";
+import {Wormhole3D} from "@/components/IndexPage/Wormhole/Wormhole3D";
 
 const AboutPage = () => {
+    const ref = React.useRef<HTMLDivElement>(null!);
     return (
         <div>
-            <Skills3D />
+            <div style={{height: "400vh", width: "100vw", backgroundColor: "black"}}>
+                <Wormhole3D target={ref} />
+            </div>
         </div>
     );
 };

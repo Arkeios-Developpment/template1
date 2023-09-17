@@ -1,12 +1,12 @@
-import '../styles/global.css';
+import '@/styles/global.css';
 import { AppProps } from 'next/app';
-import { Menu } from '@/components/Menu/Menu'
+import Header from '@/components/IndexPage/Header'
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
+            <Header />
             <Component {...pageProps} />
-            <Menu />
         </>
     );
 }

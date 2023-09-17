@@ -31,7 +31,7 @@ function SocialNetwork({ baseScale, scenePath, baseRotation } : {baseScale: numb
 export function SocialNetwork3D({baseScale, scenePath, url, baseRotation = 0 } : {baseScale: number, scenePath: string, url: string, baseRotation?: number}) {
     return (
         <Link href={url} target="_blank" rel="noopener noreferrer">
-            <Canvas style={{width: "64px", height: "64px"}}>
+            <Canvas style={{width: "256px", height: "256px"}}>
                 <ambientLight intensity={2.5} />
                 <SocialNetwork baseScale={baseScale} scenePath={scenePath} baseRotation={baseRotation} />
             </Canvas>

@@ -1,47 +1,45 @@
 import React from 'react';
-import styled from "styled-components";
-import Image from "next/image";
-import HeaderBanner from "@/components/HomePage/HeaderBanner";
-import AboutSection from "@/components/HomePage/AboutSection";
-import ServiceContainer from "@/components/HomePage/ServiceContainer";
-import Footer from "@/components/HomePage/Footer";
+import {Wormhole3D} from "@/components/IndexPage/Wormhole/Wormhole3D";
+import {WormholeTransition} from "@/components/IndexPage/WormholeTransition";
+import {BallTransition} from "@/components/IndexPage/BallTransition";
+import Landing from '@/components/IndexPage/Leading';
+import Home from '@/components/IndexPage/page';
 
-const HomePage = () => {
+export default function HomePage() {
+    const wormholeRef = React.useRef<HTMLDivElement>(null!);
+
     return (
-        <PageContainer>
-            <HeaderBanner/>
-            <AboutSection/>
-            <ServiceWrapper>
-                <ServiceContainer title={"Développement d'Applications"}
-                                  description={"Some Description Some Description"} backgroundImage={"Image1.png"}/>
-                <ServiceContainer title={"Conception Web"} description={"Some Description Some Description"}
-                                  backgroundImage={"Image2.png"}/>
-                <ServiceContainer title={"Bases de Données"} description={"Some Description Some Description"}
-                                  backgroundImage={"Image3.png"}/>
-            </ServiceWrapper>
-            <Footer/>
-        </PageContainer>
+        <div
+            style={{
+                backgroundColor: "black",
+                width: "100vw",
+                overflow: "hidden",
+            }}
+        >
+            <div style={{height: "100vh", width: "100%", backgroundColor: "yellowgreen"}}>
+                <Landing />
+            </div>
+            <div ref={wormholeRef} style={{height: "100vh", width: "100%", backgroundColor: "black"}}>
+                <Wormhole3D target={wormholeRef} />
+            </div>
+             <WormholeTransition actColor={"black"} newColor={"#a2a1a3"} />
+            <div style={{height: "100vh", width: "100%", backgroundColor: "blue"}}>
+                <Home />
+                <BallTransition newColor={"green"} />
+            </div>
+            <div style={{height: "100vh", width: "100%", backgroundColor: "green"}}>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+                <h1>SUITE ICI</h1>
+            </div>
+        </div>
     );
 };
-
-const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const ServiceWrapper = styled.div`
-  display: flex;
-  flex-direction: initial;
-  align-items: center;
-  
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-`;
-
-export default HomePage;
-
-//<p>A.M.K. Dev, est votre partenaire de confiance en développement informatique.
-//                     Spécialisés dans une large gamme de domaines, nous créons des solutions sur mesure pour répondre à vos besoins uniques.
-//                     De la conception de logiciels à la création de sites web, en passant par la gestion de bases de données, notre équipe experte transforme vos idées en réalité technologique.</p>
