@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import styles from './style.module.scss';
-import { blur, translate } from '../../anim';
+import styles from '@/components/Header/Body.module.scss';
+import { blur, translate } from '@/components/Header/Anim';
 import { JSX } from 'react';
 
 // @ts-ignore

@@ -1,5 +1,5 @@
-import styles from './style.module.scss';
-import { translate } from '../../anim';
+import styles from '@/components/Header/Footer.module.scss';
+import { translate } from '@/components/Header/Anim';
 import { motion } from 'framer-motion';
 
 export default function Footer() {

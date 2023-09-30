@@ -46,14 +46,67 @@ function Rig({target}: {target: React.RefObject<HTMLElement>}) {
     });
 }
 
+function FloatingElements({target}: {target: React.RefObject<HTMLElement>}) {
+    const { scrollYProgress } = useScroll({ target: target, offset: ["start 0.6", "start 0.25"] } );
+    const x1 = useTransform(scrollYProgress, [0, 1], [-500, 0]);
+    const x2 = useTransform(scrollYProgress, [0, 1], [500, 0]);
+
+    return (
+        <>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "20%",
+                    marginBottom: "auto",
+                    left: "2%",
+                    marginRight: "auto",
+                }}
+            >
+                <motion.div
+                    style={{
+                        width: "500px",
+                        color: "white",
+                        fontSize: "100px",
+                        position: "relative",
+                        x: x1
+                    }}
+                >
+                    <span>Voyagez dans l'univers</span>
+                </motion.div>
+            </div>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "50%",
+                    marginBottom: "auto",
+                    right: "2%",
+                    marginLeft: "auto",
+                }}
+            >
+                <motion.div
+                    style={{
+                        width: "420px",
+                        color: "white",
+                        fontSize: "100px",
+                        position: "relative",
+                        x: x2
+                    }}
+                >
+                    <span>Grace a notre expertise</span>
+                </motion.div>
+            </div>
+        </>
+    );
+}
+
 export function Wormhole3D({target}: {target: React.RefObject<HTMLElement>}) {
-    const { scrollYProgress } = useScroll({ target: target, offset: ["end center", "end start"] } );
+    const { scrollYProgress } = useScroll({ target: target, offset: ["end 0.1", "end start"] } );
     const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
     return (
         <div
             style={{
-                height: "200%",
+                height: "200vh",
                 width: "100%",
                 overflow: "hidden",
                 clipPath: "inset(0 0 0 0)",
@@ -68,6 +121,14 @@ export function Wormhole3D({target}: {target: React.RefObject<HTMLElement>}) {
                     zIndex: 1
                 }}
             >
+                <div
+                    style={{
+                        position: "absolute",
+                        width: "100vw",
+                        height: "100vh",
+                    }}>
+                    <FloatingElements target={target} />
+                </div>
                 <Canvas camera={{position: [0, 0, 3.25]}}>
                     <spotLight color="white" position={[-10, -10, -10]} intensity={400}/>
                     <spotLight color="white" position={[-10, 0, 15]} intensity={800}/>

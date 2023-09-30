@@ -13,14 +13,14 @@ export function WormholeTransition({actColor, newColor} : {actColor: string, new
     const progress3 = useTransform(scrollY, [0, 0.25, 0.5, 0.75, 1], ["100%", "90%", "80%", "25%", "0%"]);
     const progress4 = useTransform(scrollY, [0, 0.25, 0.5, 0.75, 1], ["100%", "95%", "95%", "60%", "0%"]);
 
-    const opacityProgress = useScroll({ target: target, offset: ["start 0.25", "start start"] } ).scrollYProgress;
+    const opacityProgress = useScroll({ target: target, offset: ["start 0.1", "start start"] } ).scrollYProgress;
     const opacity = useTransform(opacityProgress, [0, 1], [0, 1]);
 
 
     return (
         <motion.div
             style={{
-                height: "200vh",
+                height: "150vh",
                 width: "100vw",
                 backgroundColor: newColor,
                 overflow: "hidden",
@@ -30,7 +30,7 @@ export function WormholeTransition({actColor, newColor} : {actColor: string, new
             <motion.div
                 ref={target}
                 style={{
-                    height: "100vh",
+                    height: "50vh",
                     width: "100vw",
                 }}
             >

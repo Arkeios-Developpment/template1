@@ -1,32 +1,28 @@
 'use client';
-import styles from './style.module.scss';
+import styles from '@/components/Header/Nav.module.scss';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { height } from '../anim';
-import Body from './Body';
-import Footer from './Footer';
+import { height } from '@/components/Header/Anim';
+import Body from '@/components/Header/Body';
+import Footer from '@/components/Header/Footer';
 
 
 const links = [
     {
         title: "Home",
         href: "/",
-        src: "home.png"
     },
     {
         title: "About Us",
         href: "/about",
-        src: "home.png"
     },
     {
         title: "Lookbook",
         href: "/lookbook",
-        src: "lookbook.png"
     },
     {
         title: "Contact",
         href: "/contact",
-        src: "contact.png"
     }
 ]
 
