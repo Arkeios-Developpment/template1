@@ -11,11 +11,11 @@ const transition = {
 };
 
 function Rig() {
-    const { camera, mouse } = useThree();
+    const { camera, pointer } = useThree();
     const vec = new Vector3();
 
     return useFrame(() => {
-        camera.position.lerp(vec.set(mouse.x, mouse.y, camera.position.z), 0.05);
+        camera.position.lerp(vec.set(pointer.x, pointer.y, camera.position.z), 0.05);
         // camera.lookAt(0, 0, 0);
     });
 }
@@ -395,43 +395,29 @@ export function TopPage()
             </div>
             <div
                 style={{
-                    width: "100%",
+                    width: "70%",
                     height: "100%",
                     position: "absolute",
-                    fontSize: "100px",
-                    fontWeight: "bold",
                     pointerEvents: "none",
                     color: "white",
-                    textShadow: "1px 1px 0 #000," +
-                    "-1px 1px 0 #000," +
-                    "1px -1px 0 #000," +
-                    "-1px -1px 0 #000," +
-                    "0px 1px 0 #000," +
-                    "0px -1px 0 #000," +
-                    "-1px 0px 0 #000," +
-                    "1px 0px 0 #000," +
-                    "2px 2px 0 #000," +
-                    "-2px 2px 0 #000," +
-                    "2px -2px 0 #000," +
-                    "-2px -2px 0 #000," +
-                    "0px 2px 0 #000," +
-                    "0px -2px 0 #000," +
-                    "-2px 0px 0 #000," +
-                    "2px 0px 0 #000," +
-                    "1px 2px 0 #000," +
-                    "-1px 2px 0 #000," +
-                    "1px -2px 0 #000," +
-                    "-1px -2px 0 #000," +
-                    "2px 1px 0 #000," +
-                    "-2px 1px 0 #000," +
-                    "2px -1px 0 #000," +
-                    "-2px -1px 0 #000",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                 }}
             >
-                <span>Grace a notre expertise</span>
+                <span style={{
+                    fontFamily: "Formula Condensed Light, sans-serif",
+                    fontWeight: "700",
+                    fontSize: "10em",
+                    opacity: 0.9,
+                    textAlign: "center",
+                }}>
+                    ANIMATION
+                    <br/>
+                    &
+                    <br/>
+                    3D
+                </span>
             </div>
             <motionF.div
                 style={{

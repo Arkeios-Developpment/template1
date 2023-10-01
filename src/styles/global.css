@@ -143,6 +143,21 @@ strong {
     src: url("/asset/Fuggles/Fuggles-Regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: 'Formula Condensed Light';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/asset/FormulaCondensed/FormulaCondensed-Light.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Formula Condensed Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/asset/FormulaCondensed/FormulaCondensed-Bold.woff') format('woff');
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
     display: none;

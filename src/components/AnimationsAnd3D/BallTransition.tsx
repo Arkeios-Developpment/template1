@@ -1,39 +1,46 @@
-import {motion} from "framer-motion";
+import {motion, useScroll, useSpring, useTransform} from "framer-motion";
 import React from "react";
 
 export function BallTransition({newColor} : {newColor: string}) {
+    const target = React.useRef<HTMLDivElement>(null!);
+    const { scrollYProgress } = useScroll({ target: target, offset: ["end end", "start start"] } );
+    const scrollY = useSpring(scrollYProgress, {
+        stiffness: 1000,
+        damping: 50
+    });
+    const size = useTransform(scrollY, [0, 1], ["0vmax", "200vmax"]);
+
     return (
-        <motion.div
+        <div
+            ref={target}
             style={{
-                width: "100%",
-                height: "100%",
-                overflow: "hidden",
-                display: "block",
-                alignItems: "end",
+                height: "50vh",
+                width: "100vw",
             }}
         >
-            <motion.div
-                initial="offScreen"
-                whileInView="onScreen"
+            <div
                 style={{
-                    background: newColor,
-                    borderRadius: "50%",
-                    width: "100px",
-                    height: "100px",
-                    transform: "translateY(0px) translateX(-50px)",
+                    height: "150.1vh",
+                    width: "100%",
+                    transform: "translateY(-50vh)",
+                    overflow: "hidden",
+                    clipPath: "inset(0 0 0 0)",
                 }}
-                variants={{
-                    onScreen: {
-                        width: "100vw",
-                        height: "100vw",
-                        transform: "translateY(25vw) translateX(-50vw)",
-                    }
-                }}
-                transition={{
-                    ease: "easeInOut",
-                    duration: 1,
-                }}
-            />
-        </motion.div>
+            >
+                <motion.div
+                    style={{
+                        background: newColor,
+                        borderRadius: "50%",
+                        width: size,
+                        height: size,
+                        position: "fixed",
+                        top: "50%",
+                        left: "50%",
+                        x: "-50%",
+                        y: "-50%",
+                    }}
+                />
+            </div>
+        </div>
     );
 }
