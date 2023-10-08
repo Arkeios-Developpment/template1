@@ -158,6 +158,13 @@ strong {
     src: url('/asset/FormulaCondensed/FormulaCondensed-Bold.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/asset/BebasNeue/BebasNeue-Regular.ttf') format('ttf');
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
     display: none;
