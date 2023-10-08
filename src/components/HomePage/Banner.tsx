@@ -10,22 +10,7 @@ const Banner = () => {
   const secondText = useRef(null);
   const slider = useRef(null);
   let xPercent = 0;
-  let direction = -1;
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(slider.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        scrub: 0.25,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: (e) => (direction = e.direction * -1),
-      },
-      x: "-500px",
-    });
-    requestAnimationFrame(animate);
-  }, []);
+  let direction = useRef(-1);
 
   const animate = () => {
     if (xPercent < -100) {
@@ -36,8 +21,24 @@ const Banner = () => {
     gsap.set(firstText.current, { xPercent: xPercent });
     gsap.set(secondText.current, { xPercent: xPercent });
     requestAnimationFrame(animate);
-    xPercent += 0.07 * direction;
+    xPercent += 0.07 * direction.current;
   };
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(slider.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        scrub: 0.25,
+        start: 0,
+        end: window.innerHeight,
+        onUpdate: (e) => (direction.current = e.direction * -1),
+      },
+      x: "-500px",
+    });
+    requestAnimationFrame(animate);
+  }, [animate]);
+
 
   const target = useRef<HTMLDivElement>(null!);
 

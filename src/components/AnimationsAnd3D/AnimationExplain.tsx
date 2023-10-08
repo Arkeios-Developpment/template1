@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform, animate, MotionValue } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { interpolate } from "flubber";
 
 // Paths taken from https://github.com/veltman/flubber/blob/master/demos/basic-svg.html
@@ -64,7 +64,7 @@ export default function AnimationExplain()
     const fill = useTransform(progress, paths.map(getIndex), colors);
     const path = useFlubber(progress, paths);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const animation = animate(progress, pathIndex, {
             duration: 0.8,
             ease: "easeInOut",
@@ -79,7 +79,7 @@ export default function AnimationExplain()
         });
 
         return () => animation.stop();
-    }, [pathIndex]);
+    }, [pathIndex, progress]);
 
     return (
         <div

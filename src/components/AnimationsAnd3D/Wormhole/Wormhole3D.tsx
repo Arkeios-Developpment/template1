@@ -71,7 +71,7 @@ function FloatingElements({target}: {target: React.RefObject<HTMLElement>}) {
                         x: x1
                     }}
                 >
-                    <span>Voyagez dans l'univers</span>
+                    <span>Voyagez dans l&apos;univers</span>
                 </motion.div>
             </div>
             <div

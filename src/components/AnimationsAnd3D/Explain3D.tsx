@@ -81,7 +81,7 @@ function FloatingElements({target}: {target: React.RefObject<HTMLElement>}) {
                         x: x2
                     }}
                 >
-                    <span>A l'aide d'element 3D époustoufflants</span>
+                    <span>A l&apos;aide d&apos;element 3D époustoufflants</span>
                 </motion.div>
             </div>
         </>

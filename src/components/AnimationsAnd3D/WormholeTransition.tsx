@@ -67,7 +67,7 @@ export function WormholeTransition({actColor, newColor} : {actColor: string, new
                             fontSize: "100px",
                         }}
                     >
-                        <span>Confiez nous vos idées d'animations web</span>
+                        <span>Confiez nous vos idées d&apos;animations web</span>
                     </div>
                 </div>
             </div>

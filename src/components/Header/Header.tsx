@@ -6,9 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { opacity, background } from '@/components/Header/Anim';
 import Nav from '@/components/Header/Nav';
 
-export default function index() {
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Header() {
     const [isActive, setIsActive] = useState(false);
 
     return (
@@ -23,7 +21,7 @@ export default function index() {
                     </div>
                 </div>
                 <motion.div variants={opacity} animate={!isActive ? "open" : "closed"} className={styles.shopContainer}>
-                    // here
+                    Something here
                 </motion.div>
             </div>
             <motion.div variants={background} initial="initial" animate={isActive ? "open" : "closed"} className={styles.background}></motion.div>
